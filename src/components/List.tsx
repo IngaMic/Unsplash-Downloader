@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "./Card";
 
+import "./List.css";
+
 interface ListProps {
     images: { id: number; name: string; tag: string; url: string }[];
 }

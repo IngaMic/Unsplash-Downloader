@@ -1,0 +1,37 @@
+.homepage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+h1 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.load-more-button {
+  margin: 8px auto 50px auto;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid black;
+  padding: 5px 13px 5px 13px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.load-more-button:hover {
+  color: white;
+  background-color: black;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+/*# sourceMappingURL=Homepage.css.map */

@@ -4,6 +4,8 @@ import List from "../components/List";
 //importing dummy data before using api
 import imagesArray from "../imagesArray";
 
+import "./Homepage.css";
+
 type LoadedImage = {
     id: number;
     name: string;
@@ -21,7 +23,7 @@ const Homepage: React.FC = () => {
     }, [loadedImages]);
 
     const handleClick = () => {
-        console.log("Click on Load More btn");
+        console.log("Click on Load More Button");
     };
 
     return (
@@ -31,7 +33,7 @@ const Homepage: React.FC = () => {
                 <>
                     <List images={loadedImages}></List>
 
-                    <button className="loadMoreButton" onClick={handleClick}>
+                    <button className="load-more-button" onClick={handleClick}>
                         Load More
                     </button>
                 </>
