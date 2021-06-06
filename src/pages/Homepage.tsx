@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import List from "../components/List";
+import LoadingSpinner from "../components/LoadingSpinner";
 import "./Homepage.css";
 
 import { REACT_APP_ACCESSKEY } from "../secrets.json";
@@ -20,12 +21,13 @@ type LoadedImage = {
 const Homepage: React.FC = () => {
     const [loadedImages, setLoadedImages] = useState<LoadedImage[]>([]);
     const [pageNumber, setPageNumber] = useState<number>(1);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         // Fetchig images from unsplash api
         // fetching 9 pictures per page
         const fetchImages = async () => {
-            //loading starts here
+            setLoading(true);
 
             const apiRoot = "https://api.unsplash.com";
 
@@ -35,13 +37,11 @@ const Homepage: React.FC = () => {
                 );
                 const data = await response.json();
 
-                //console.log("Data", data);
-
                 setLoadedImages([...loadedImages, ...data]);
 
-                //loading state ends here
+                setLoading(false);
             } catch (err) {
-                //loading state ends here
+                setLoading(false);
                 throw new Error("Could not fetch images");
             }
         };
@@ -57,7 +57,7 @@ const Homepage: React.FC = () => {
         <div className="homepage">
             <h1>Unsplash Wallpaper Downloader </h1>
 
-            {/* Loading Spinner Component will go here */}
+            {!!loading && <LoadingSpinner />}
 
             {loadedImages.length > 0 && (
                 <>
