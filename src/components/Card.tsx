@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = (props) => {
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
-            <img alt={props.title} src={props.url} />
+            <img alt={props.title} loading="lazy" src={props.url} />
             {hover && (
                 <>
                     <div className="card-text">
