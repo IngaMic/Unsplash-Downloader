@@ -1,10 +1,21 @@
 import React from "react";
+
 import Card from "./Card";
 
 import "./List.css";
 
 interface ListProps {
-    images: { id: number; name: string; tag: string; url: string }[];
+    images: {
+        id: string;
+        user: {
+            name: string;
+        };
+        alt_description: string;
+        urls: {
+            small: string;
+        };
+        links: { download: string };
+    }[];
 }
 
 const List: React.FC<ListProps> = (props) => {
@@ -14,9 +25,10 @@ const List: React.FC<ListProps> = (props) => {
                 return (
                     <Card
                         key={img.id}
-                        username={img.name}
-                        title={img.tag}
-                        url={img.url}
+                        username={img.user.name}
+                        title={img.alt_description}
+                        url={img.urls.small}
+                        downloader={img.links.download}
                     />
                 );
             })}

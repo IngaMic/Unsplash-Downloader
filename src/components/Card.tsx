@@ -3,18 +3,15 @@ import React, { useState } from "react";
 import "./Card.css";
 
 interface CardProps {
-    key: number;
+    key: string;
     username: string;
     title: string;
     url: string;
+    downloader: string;
 }
 
 const Card: React.FC<CardProps> = (props) => {
     const [hover, setHover] = useState<boolean>(false);
-
-    const clickHandler = () => {
-        console.log("Click on Download Button");
-    };
 
     return (
         <div
@@ -30,9 +27,9 @@ const Card: React.FC<CardProps> = (props) => {
                         <h4 className="title">{props.title}</h4>
                     </div>
 
-                    <button className="download-button" onClick={clickHandler}>
-                        Download
-                    </button>
+                    <a download href={props.downloader + "?force=true"}>
+                        <button className="download-button">Download</button>
+                    </a>
                 </>
             )}
         </div>
